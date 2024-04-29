@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sampletodolist.HelloController">
+   <left>
+      <ListView fx:id="todoListView" onKeyPressed="#handleKeyPressed" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="itemDetailsTextArea" prefHeight="448.0" prefWidth="400.0" wrapText="true" />
+            <HBox prefHeight="109.0" prefWidth="400.0">
+               <children>
+                  <Label prefHeight="23.0" prefWidth="55.0" text="Due: ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="deadLineLabel" prefHeight="26.0" prefWidth="179.0">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <top>
+       <VBox>
+           <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#showNewItemDialog" text="New..." />
+                  <MenuItem mnemonicParsing="false" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit" onAction="#handleExit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+           <ToolBar>
+               <HBox>
+                   <Button text = "New..." onAction = "#showNewItemDialog" />
+                   <ToggleButton fx:id = "filterToggleButton" text = "Today's Items" onAction="#handleFilterButton">
+                      <tooltip>
+                          <Tooltip text = "Button down: Show Today's items only, Button up: Show all items" />
+                      </tooltip>
+                   </ToggleButton>
+               </HBox>
+           </ToolBar>
+       </VBox>
+   </top>
+</BorderPane>
